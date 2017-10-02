@@ -16,10 +16,11 @@ use Mix.Config
 config :microblog, MicroblogWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "microblog.sase.pizza", port: 80],
-  server: true,
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
+
 
 # ## SSL Support
 #
@@ -66,6 +67,7 @@ config :microblog, Microblog.Repo,
   database: "microblog_prod",
   hostname: "localhost",
   pool_size: 10
+
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Blog New</title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <%= form_for @changeset, @action, fn f -> %>
+        <%= if @changeset.action do %>
+          <div class="alert alert-danger">
+            <p>Oops, something went wrong! Please check the errors below.</p>
+          </div>
+        <% end %>
+
+         <div class="form-group">
+           <%= hidden_input f, :user, class: "form-control", value: @current_user.username %>
+           <%= error_tag f, :user %>
+         </div>
+
+         <div class="form-group">
+           <%= label f, :title, class: "control-label" %>
+           <%= text_input f, :title, class: "form-control" %>
+           <%= error_tag f, :title %>
+         </div>
+
+         <div class="form-group">
+           <%= label f, :post, class: "control-label" %>
+           <%= text_input f, :post, class: "form-control" %>
+           <%= error_tag f, :post %>
+         </div>
+
+         <div class="form-group">
+           <%= hidden_input f, :likes, class: "form-control", value: 0 %>
+           <%= error_tag f, :likes %>
+         </div>
+
+         <div class="form-group">
+           <%= submit "Submit", class: "btn btn-primary" %>
+         </div>
+       <% end %>
+
+    </div>
+  </body>
+</html>
