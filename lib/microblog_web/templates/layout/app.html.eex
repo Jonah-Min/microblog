@@ -13,7 +13,7 @@
 
 
   <body>
-   <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+   <nav class="navbar navbar-expand-md bg-light navbar-light rounded mb-3">
       <a class="navbar-brand" href="#">Microblog</a>
 
       <button class="navbar-toggler" type="button"
@@ -34,7 +34,7 @@
       </div>
 
       <%= if @current_user do %>
-        <span class="text-light">
+        <span class="text-dark">
           <%= @current_user.username %> |
           <%= link("logout", to: session_path(@conn, :logout), method: :delete) %>
         </span>
