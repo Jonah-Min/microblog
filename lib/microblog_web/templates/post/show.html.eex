@@ -43,11 +43,7 @@
 
 <%= if @current_user do %>
   <div class="m-2">
-    <%= if @user_liked_post do %>
-      <button id="like-add-button" class="btn btn-primary"
-        data-user-id="<%= @current_user.id %>" data-username="<%= @current_user.username %>">Like!</button>
-    <% else %>
-      <p> You Liked This Post </p>
-    <% end %>
+    <button id="like-add-button" class="btn btn-primary"
+      data-user-id="<%= @current_user.id %>" data-username="<%= @current_user.username %>">Like!</button>
   </div>
 <% end %>
