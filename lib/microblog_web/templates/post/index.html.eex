@@ -27,7 +27,7 @@
 	    <%= post.post %><br>
             <strong>Likes: <%= post.likes %></strong>
           </p>
-          <p><a class="btn btn-primary" href="#" role="button">View!</a></p>
+          <p><a class="btn btn-primary" href="posts/<%= post.id %>" role="button">View!</a></p>
         </div>
       <% end %>
 

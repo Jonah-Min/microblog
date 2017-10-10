@@ -22,7 +22,7 @@
               <p>
                 <%= user.email %><br>
               </p>
-              <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+	      <p><a class="btn btn-primary" href="users/<%= user.id %>" role="button">View details &raquo;</a></p>
             </div>
           <% end %>
         </div>

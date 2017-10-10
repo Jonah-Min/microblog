@@ -13,6 +13,8 @@ defmodule MicroblogWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_user
   end
 
   scope "/", MicroblogWeb do
@@ -24,13 +26,14 @@ defmodule MicroblogWeb.Router do
     resources "/users", UserController
     resources "/posts", PostController
     resources "/follows", FollowController    
-  
+ 
     post "/sessions", SessionController, :login
     delete "/sessions", SessionController, :logout
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MicroblogWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", MicroblogWeb do
+    pipe_through :api
+    resources "/likes", LikeController, expcept: [:new, :edit]
+  end
 end

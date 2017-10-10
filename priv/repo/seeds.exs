@@ -13,11 +13,10 @@
 alias Microblog.Repo
 alias Microblog.Account.User
 alias Microblog.Blog.Post
-
+alias Microblog.Feedback.Like
 
 Repo.delete_all(Post)
 Repo.delete_all(User)
-
 
 Repo.insert!(%Post{user: "JonahMin", title: "title", post: "body", likes: 1})
 Repo.insert!(%User{user_id: 1, username: "JonahMin", email: "email@email.com"})

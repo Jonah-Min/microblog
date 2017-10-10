@@ -16,3 +16,38 @@
   </div>
 </div>
 
+<div id="post-likes"
+  data-path="<%= like_path(@conn, :index) %>"
+  data-post_id="<%= @post.id %>">
+  &nbsp;
+</div>
+
+<script id="likes-template" type="text/x-handlebars-template">
+  <div class="m-2">
+    <h2>Likes</h2>
+  
+    {{#each data}}
+    <div class="card w-75 m-2">
+      <div class="card-body">
+        <h6 class=""></h6>
+        <div class="card-text">
+           <p>{{username}} Likes this</p>
+           <p></p>
+        </div>
+      </div>
+    </div>
+   
+    {{/ each}}
+  </div>
+</script>
+
+<%= if @current_user do %>
+  <div class="m-2">
+    <%= if @user_liked_post do %>
+      <button id="like-add-button" class="btn btn-primary"
+        data-user-id="<%= @current_user.id %>" data-username="<%= @current_user.username %>">Like!</button>
+    <% else %>
+      <p> You Liked This Post </p>
+    <% end %>
+  </div>
+<% end %>
