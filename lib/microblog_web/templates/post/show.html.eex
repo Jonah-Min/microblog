@@ -42,6 +42,10 @@
 </script>
 
 <%= if @current_user do %>
+  <script type="text/javascript">
+     window.currUsername = "<%= @current_user.username %>";
+  </script>
+
   <div class="m-2">
     <button id="like-add-button" class="btn btn-primary"
       data-user-id="<%= @current_user.id %>" data-username="<%= @current_user.username %>">Like!</button>

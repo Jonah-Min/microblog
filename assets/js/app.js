@@ -39,6 +39,19 @@ $(function() {
 
   function fetch_likes() {
     function got_likes(data) {
+      let likes = data.data;
+      let liked = false;
+
+      for (var i = 0; i < likes.length; i++) {
+        if (window.currUsername == likes[i].username) {
+          liked = true;
+        }
+      }
+
+      if (liked) {
+        $("#like-add-button").hide();
+      }   
+
       let html = tmpl(data);
       dd.html(html);
     }
