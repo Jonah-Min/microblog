@@ -56,7 +56,7 @@ socket.connect()
 function update_blogs(template) {
   if (window.location.pathname == "/posts" || window.location.pathname == "/posts/") {
     let last_post = 'body > doctype > div > div:nth-child(2) > div > div.row';
-    $(last_post).insertBefore(template.post);
+    $(last_post).prepend(template.post);
   }
 }
 
