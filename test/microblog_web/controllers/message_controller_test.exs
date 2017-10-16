@@ -12,13 +12,6 @@ defmodule MicroblogWeb.MessageControllerTest do
     message
   end
 
-  describe "index" do
-    test "lists all messages", %{conn: conn} do
-      conn = get conn, message_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Messages"
-    end
-  end
-
   describe "new message" do
     test "renders form", %{conn: conn} do
       conn = get conn, message_path(conn, :new)
