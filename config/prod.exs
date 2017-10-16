@@ -15,11 +15,12 @@ use Mix.Config
 # which you typically run after static files are built.
 config :microblog, MicroblogWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "microblog.sase.pizza", port: 80],
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
+
 
 # ## SSL Support
 #
@@ -58,6 +59,15 @@ config :logger, level: :info
 #
 #     config :microblog, MicroblogWeb.Endpoint, server: true
 #
+
+config :microblog, Microblog.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "microblog",
+  password: "piR7itheiS",
+  database: "microblog_prod",
+  hostname: "localhost",
+  pool_size: 10
+
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.

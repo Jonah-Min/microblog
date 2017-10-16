@@ -17,8 +17,7 @@ import "phoenix_html"
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-import socket from "./socket"
-
+// import socket from "./socket"
 let handlebars = require("handlebars");
 
 $(function() {
@@ -43,21 +42,15 @@ $(function() {
       let likes = data.data;
       let liked = false;
 
-      console.log(likes);
-  
       for (var i = 0; i < likes.length; i++) {
         if (window.currUsername == likes[i].username) {
           liked = true;
         }
       }
 
-      console.log(liked);
-
       if (liked) {
-         $("#like-add-button").hide();
-      } else {
-         $("#like-add-button").show();
-      }
+        $("#like-add-button").hide();
+      }   
 
       let html = tmpl(data);
       dd.html(html);

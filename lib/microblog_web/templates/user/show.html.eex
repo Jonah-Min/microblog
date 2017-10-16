@@ -1,0 +1,20 @@
+<h2>Show User</h2>
+
+<ul>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+</ul>
+
+<%= if @current_user do %>
+<% else %>
+  <a href="#">Follow</a>
+<% end %>

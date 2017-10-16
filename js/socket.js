@@ -53,38 +53,10 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
-function update_blogs(template) {
-  if (window.location.pathname == "/posts" || window.location.pathname == "/posts/") {
-    let last_post = 'body > doctype > div > div:nth-child(2) > div > div.row > div';
-    $(template.post).insertAfter(last_post);
-  }
-}
-
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("updates:lobby", {})
+let channel = socket.channel("topic:subtopic", {})
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-channel.on("ping", update_blogs);
-
-let url_send = window.location.hash.substr(1);
-
-if(url_send == "send") {
-  let title = $('.blog-post-meta').text();
-  let user = $('.blog-title').text();
-  let body = $('#post_post').text();
-  let post_id = $('#post-likes').data('post_id'); 
-  let likes = 0;
-
-  let template = `<div class='col-lg-3'>
-                    <h2>${title}</h2>
-                    <h3>${user}</h3>
-                    <p>${body}<br></p>
-                    <p><a class='btn btn-primary' href='posts/${post_id}' role='button'>View!</a></p>
-                  </div>`;                
-  channel.push("ping", {post: template});
-  window.location.hash = '';
-};
-     
 export default socket

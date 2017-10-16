@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Account Index</title>
+  </head>
+
+  <body>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Accounts</h1>
+      </div>
+
+      <!-- Example row of columns -->
+        <div class="row">
+          <%= for user <- @users do %>
+            <div class="col-lg-3">
+              <h2><%= user.username %></h2>
+              <p>
+                <%= user.email %><br>
+              </p>
+	      <p><a class="btn btn-primary" href="users/<%= user.id %>" role="button">View details &raquo;</a></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+  </body>
+</html>

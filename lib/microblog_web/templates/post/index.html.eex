@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Blog Index</title>
+
+  </head>
+
+  <body>
+
+    <div class="jumbotron">
+      <h1>Blogs</h1>
+      <%= if @current_user do %>
+        <p><a class="btn btn-primary" href="posts/new" role="button">Make a New Post!</a></p>
+      <% end %>
+    </div>
+
+    <div class="row">
+
+      <%= for post <- @posts do %>
+        <div class="col-lg-3">
+          <h2><%= post.title %></h2>
+	  <h3><%= post.user %></h3>
+          <p>
+	    <%= post.post %><br>
+          </p>
+          <p><a class="btn btn-primary" href="posts/<%= post.id %>" role="button">View!</a></p>
+        </div>
+      <% end %>
+
+
+    </div>
+  </body>
+</html>

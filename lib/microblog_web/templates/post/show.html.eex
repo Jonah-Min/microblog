@@ -1,0 +1,53 @@
+<div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title"><%= @post.title %></h1>
+    <p class="blog-post-meta"><%= @post.user %></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 blog-main">
+      <div class="blog-post">
+	<p id="post_post"><%= @post.post %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="post-likes"
+  data-path="<%= like_path(@conn, :index) %>"
+  data-post_id="<%= @post.id %>">
+  &nbsp;
+</div>
+
+<script id="likes-template" type="text/x-handlebars-template">
+  <div class="m-2">
+    <h2>Likes</h2>
+  
+    {{#each data}}
+    <div class="card w-75 m-2">
+      <div class="card-body">
+        <h6 class=""></h6>
+        <div class="card-text">
+           <p>{{username}} Likes this</p>
+           <p></p>
+        </div>
+      </div>
+    </div>
+   
+    {{/ each}}
+  </div>
+</script>
+
+<%= if @current_user do %>
+  <script type="text/javascript">
+    window.currUsername = "<%= @current_user.username %>";
+  </script>
+
+
+  <div class="m-2">
+      <button id="like-add-button" class="btn btn-primary"
+        data-user-id="<%= @current_user.id %>" data-username="<%= @current_user.username %>">Like!</button>
+  </div>
+<% end %>
